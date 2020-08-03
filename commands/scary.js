@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'alan',
+	name: 'scary',
 	description: 'A special meme for my friendo',
 	aliases: ['boo'],
 	execute(message) {
