@@ -1,6 +1,6 @@
 {
   "name": "oni-bot",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "discord bot",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
-    "discord.js": "^12.2.0",
-    "eslint": "^7.5.0",
-    "ffmpeg-static": "^4.2.6"
+    "discord.js": "github:discordjs/discord.js#master",
+    "discord.js-commando": "github:discordjs/Commando",
+    "eslint": "^7.6.0",
+    "ffmpeg-static": "^4.2.6",
+    "node-opus": "^0.3.3",
+    "simple-youtube-api": "^5.2.1",
+    "ytdl-core": "^3.2.0",
+    "ytdl-core-discord": "^1.2.1"
   }
 }
