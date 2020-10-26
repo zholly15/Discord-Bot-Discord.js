@@ -5,7 +5,7 @@ module.exports = class CraigCommandss extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'craig',
-			group: 'first',
+			group: 'halo',
 			memberName: 'craig',
 			description: 'Information on Craig',
 			aliases: ['brute'],

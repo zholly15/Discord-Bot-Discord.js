@@ -14,7 +14,10 @@
     "discord.js-commando": "github:discordjs/Commando",
     "eslint": "^7.6.0",
     "ffmpeg-static": "^4.2.6",
+    "haloapi": "^0.5.0",
+    "node-fetch": "^2.6.0",
     "node-opus": "^0.3.3",
+    "request": "^2.88.0",
     "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^3.2.0",
     "ytdl-core-discord": "^1.2.1"

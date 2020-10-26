@@ -5,7 +5,7 @@ module.exports = class BiasCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'bias',
-			group: 'first',
+			group: 'halo',
 			memberName: 'bias',
 			description: 'Information of Mendicant Bias',
 			aliases: ['mendicant'],

@@ -4,7 +4,7 @@ module.exports = class ReachCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'reach',
-			group: 'second',
+			group: 'halo',
 			memberName: 'reach',
 			description: 'Reach Contact Command',
 		});

@@ -15,12 +15,6 @@ Structures.extend('Guild', Guild => {
 				nowPlaying: null,
 				songDispatcher: null,
 			};
-			this.triviaData = {
-				isTriviaRunning: false,
-				wasTriviaEndCalled: false,
-				triviaQueue: [],
-				triviaScore: new Map(),
-			};
 		}
 	}
 	return MusicGuild;
@@ -38,6 +32,7 @@ client.registry
 		['first', 'Your First Command Group'],
 		['second', 'The Second Command Group'],
 		['music', 'The music command Group'],
+		['halo', 'The Halo Command Group'],
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands()
