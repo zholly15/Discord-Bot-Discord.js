@@ -1,6 +1,12 @@
 const { Command } = require('discord.js-commando');
+const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
-const querystring = require('querystring');
+
+const clean = (str) =>{
+	str = str.replace(/[\[\]]+/g, '');
+	return str;
+} 
+
 
 module.exports = class UrbanCommand extends Command {
 	constructor(client) {
@@ -20,26 +26,36 @@ module.exports = class UrbanCommand extends Command {
 	}
 
 	async run(message, { word }) {
-		const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
-		const query = querystring.stringify({ term: word.join(' ') });
+		let args = word;
+		word = word.replace(/\s+/g, '');
 
-		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
+		const query = `term=${word}`;
 
-		if (!list.length){
-			return message.send(`No results found for **${word.join(' ')}**.`);
-		}
+		let url = `https://api.urbandictionary.com/v0/define?${query}`;
+
+		const { list } = await fetch(url).then(response => response.json());
+
 
 		const [answer] = list;
 
-		const embed = new Discord.MessageEmbed()
-			.setColor('#EFFF00')
+		if((!answer)) {
+			return message.say(`No results found for ${args}`);
+		}
+
+		let emple = "No example found";
+		if(answer.example.length){
+			emple = answer.example;
+		}
+
+		const embed = new MessageEmbed()
+			.setColor('EFFF00')
 			.setTitle(answer.word)
 			.setURL(answer.permalink)
 			.addFields(
-				{ name: 'Definition', value: trim(answer.definition, 1024) },
-				{ name: 'Example', value: trim(answer.example, 1024) },
-				{ name: 'Rating', value: `${answer.thumbs_up} thumbs up. ${answer.thumbs_down} thumbs down.` },
+				{ name: 'Definition:', value: clean(answer.definition) },
+				{ name: 'Example:', value: clean(emple) },
+				{ name: 'Rating:', value: `${answer.thumbs_up} thumbs up. ${answer.thumbs_down} thumbs down.` },
 			);
-		message.embed(embed);
+		return message.embed(embed);
 	}
 };
